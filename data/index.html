@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐈‍</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Name Input Modal -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h2> Welcome! </h2>
+            <p>Introduce yourself and your pet:</p>
+            <input type="text" id="nameInput" placeholder="Enter your name..." maxlength="30">
+            <input type="text" id="catNameInput" placeholder="Enter your new cat's name..." maxlength="30">
+            <button onclick="saveName()">Enter</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="greeting" id="greeting">Welcome to the playpen!</div>
+        </div>
+
+        <div id="home" class="page active">
+            <div id="target1" class="imgCon">
+                <img src="images/catFace.png" style="height: 50%; width: auto;">
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="showPage('nom')">Feed</button>
+                <button class="nav-btn" onclick="showPage('play')">Play</button>
+            </div>
+        </div>
+
+        <div id="nom" class="page">
+            <h1>🍗 Snack Time! </h1>
+            <div id="target2" class="foodCon">
+                <img class="bowlBack" src="images/bowlBack.png" >
+                <img id="myImg" src="">  
+                <img class="bowlBack"src='images/bowlFront.png'>
+                
+            </div>
+            <div class="nav-buttons">
+                <button id="feeder" class="back-btn">Feed</button>
+                <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+            </div>
+            
+        </div>
+
+        <div id="play" class="page">
+            <h1>🧶 Play Time!</h1>
+            <div id="target3" class="pawCon">
+                <img src="images/paw.png" class="bowlBack">
+                <button onclick="shortPress()"><img class="beanLL" src = "images/LL.png"></button>
+                <button onclick="makeDarker(); low();"><img class="beanL" src = "images/L.png"></button>
+                <button onclick="makeLighter(); high();"><img class="beanR" src = "images/R.png"></button>
+                <button onclick="longPress()"><img class="beanRR" src = "images/RR.png"></button>
+                <button onclick="resetBackground(); mid();"><img class="pad" src = "images/pawpad.png"></button>
+            </div>
+            <div class="nav-buttons">
+                <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+    <audio id="chomp" preload="auto">
+        <source src="nom-audio.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="down" preload="auto">
+        <source src="down-audio.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="up" preload="auto">
+        <source src="up-audio.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="magic" preload="auto">
+        <source src="magic-audio.mp3" type="audio/mpeg">
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>
