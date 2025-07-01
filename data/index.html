@@ -24,8 +24,8 @@
         </div>
 
         <div id="home" class="page active">
-            <div id="target1" class="imgCon">
-                <img src="images/catFace.png" style="height: 50%; width: auto;">
+            <div id="target1">
+             <img id="cat" src="images/catFace.png" border = "0" width = "80%">
             </div>
             <div class="nav-buttons">
                 <button class="nav-btn" onclick="showPage('nom')">Feed</button>
@@ -34,29 +34,23 @@
         </div>
 
         <div id="nom" class="page">
-            <h1>🍗 Snack Time! </h1>
+            <h1>🍗 Snack Time!</h1>
             <div id="target2" class="foodCon">
-                <img class="bowlBack" src="images/bowlBack.png" >
-                <img id="myImg" src="">  
-                <img class="bowlBack"src='images/bowlFront.png'>
-                
+                <img id="bowlImg" src="" border="0" width = "70%">  
             </div>
-            <div class="nav-buttons">
+      <div class="nav-buttons">
                 <button id="feeder" class="back-btn">Feed</button>
+    </div>
+            <div class="nav-buttons">
                 <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
             </div>
             
         </div>
 
-        <div id="play" class="page">
+        <div id="play" class="page active">
             <h1>🧶 Play Time!</h1>
-            <div id="target3" class="pawCon">
-                <img src="images/paw.png" class="bowlBack">
-                <button onclick="shortPress()"><img class="beanLL" src = "images/LL.png"></button>
-                <button onclick="makeDarker(); low();"><img class="beanL" src = "images/L.png"></button>
-                <button onclick="makeLighter(); high();"><img class="beanR" src = "images/R.png"></button>
-                <button onclick="longPress()"><img class="beanRR" src = "images/RR.png"></button>
-                <button onclick="resetBackground(); mid();"><img class="pad" src = "images/pawpad.png"></button>
+            <div id="target3">
+              <img id= "paw" src="images/paw_full.PNG" border="0" width = "50%"/>
             </div>
             <div class="nav-buttons">
                 <button class="back-btn" onclick="showPage('home')">← Back to Home</button>

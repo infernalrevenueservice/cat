@@ -1,18 +1,19 @@
 
 
 const petBowl = [
-    'images/food1.png',
-    'images/food2.png',
-    'images/food3.png',
-    'images/food4.png',
-    'images/food5.png',
-    'images/food6.png'
+    'images/bowl1.png',
+    'images/bowl2.png',
+    'images/bowl3.png',
+    'images/bowl4.png',
+    'images/bowl5.png',
+    'images/bowl6.png',
+    'images/bowl7.png'
     ];
     const feedButton = document.getElementById('feeder');
-    const food = document.getElementById('myImg');
+    let food = document.getElementById('bowlImg');
     let index = 0; 
     feedButton.addEventListener('click', () => {
-        food.src=petBowl[index];
+        food.src = petBowl[index];
         index++;
         if (index < petBowl.length-1){
             omnom();
@@ -28,14 +29,23 @@ const petBowl = [
         
     });
 
-
-
-
-function shortPress(){
-        fetch('/short')      
+function farRightBean(){
+    fetch('/short')      
 }
-function longPress(){
+function farLeftBean(){
     fetch('/long')
+}
+function leftBean(){
+    high();
+    makeLighter();
+}
+function rightBean(){
+    low();
+    makeDarker();
+}
+function pawPad(){
+    mid();
+    resetBackground();
 }
 
     
@@ -284,18 +294,66 @@ function beepLow() {
 }
 
 
-function updateMaxHeight(source,target) {
-    const sourceElement = document.getElementById(source);
-    const targetElement = document.getElementById(target);
-  const sourceHeight = sourceElement.offsetHeight;
-  targetElement.style.setProperty('max-height', `${sourceHeight}px`, 'important');
-  
-}
-window.addEventListener("load",heightMaxxer)
+window.addEventListener('resize', () => {
+  let con = document.getElementById('target3');
+  let image = document.getElementById('paw');
+  let inWidth = con.clientWidth;
+  let outWidth = image.offsetWidth;
+  image.style.left = inWidth/2 - outWidth/2 + 'px';
+});
 
-function heightMaxxer(){
-    updateMaxHeight("home","target1");
-    updateMaxHeight("nom","target2");
-    updateMaxHeight("nom","myImg");
-    updateMaxHeight("play","target3");
+window.addEventListener('resize', () => {
+  let con = document.getElementById('target1');
+  let image = document.getElementById('cat');
+  let inWidth = con.clientWidth;
+  let outWidth = image.offsetWidth;
+  image.style.left = inWidth/2 - outWidth/2 + 'px';
+});
+
+window.addEventListener('resize', () => {
+  let con = document.getElementById('target2');
+  let image = document.getElementById('bowlImg');
+  let inWidth = con.clientWidth;
+  let outWidth = image.offsetWidth;
+  image.style.left = inWidth/2 - outWidth/2 + 'px';
+});
+
+const targetDiv = document.getElementById('paw');
+
+targetDiv.addEventListener('click', function(event) {
+    const rect = this.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    
+    where_paw_pressed = WherePressed(rect.width, rect.height, x, y);
+});
+
+function WherePressed(width, height, x, y){
+  console.log(`total width:${width} total height:${height} clicked f:${x} clicked y:${y}`);
+  
+  const xp = (x/width)*100;
+  const yp = (y/height)*100;
+ 
+  if(((xp<=85.7)&&(xp>=75.4))&&((yp<=56.7)&&(yp>=53.1))||((xp<=75.4)&&(xp>=71.4))&&((yp<=55.8)&&(yp>=53.1))||((xp<=86.4)&&(xp>=67.7))&&((yp<=53.1)&&(yp>=44.3))||((xp<=85.3)&&(xp>=68.6))&&((yp<=44.3)&&(yp>=41.6))||((xp<=80.3)&&(xp>=72.1))&&((yp<=41.6)&&(yp>=40.9))){
+    console.log("pressed RIGHT RIGHT");
+    farRightBean();
+  }
+  if(((xp>=14.3)&&(xp<=24.6))&&((yp>=43.3)&&(yp<=46.9))||((xp>=24.6)&&(xp<=28.6))&&((yp>=44.2)&&(yp<=46.9))||((xp>=13.6)&&(xp<=32.3))&&((yp>=46.9)&&(yp<=55.7))||((xp>=14.7)&&(xp<=31.4))&&((yp>=55.7)&&(yp<=58.4))||((xp>=19.7)&&(xp<=27.9))&&((yp>=58.4)&&(yp<=59.1))){
+    console.log("pressed LEFT LEFT");
+    farLeftBean();
+  }
+  if(((xp<=70.6)&&(xp>=54.3))&&((yp<=73.7)&&(yp>=70.0))||((xp<=72.4)&&(xp>=53.0))&&((yp<=70.0)&&(yp>=59.6))||((xp<=65.7)&&(xp>=57.0))&&((yp<=57.3)&&(yp>=56.0))||((xp<=69.2)&&(xp>=54.1))&&((yp<=59.6)&&(yp>=57.3))){
+    console.log("pressed RIGHT");
+    rightBean();
+  }
+  if(((xp>=29.4)&&(xp<=45.7))&&((yp>=26.3)&&(yp<=30.0))||((xp>=27.6)&&(xp<=47.0))&&((yp>=30.0)&&(yp<=40.4))||((xp>=34.3)&&(xp<=43.0))&&((yp>=42.7)&&(yp<=44.0))||((xp>=30.8)&&(xp<=45.9))&&((yp>=40.4)&&(yp<=42.7))){
+    console.log("pressed LEFT");
+    leftBean();
+  }
+  if(((xp>=44.3)&&(xp<=46.1))&&((yp>=44.4)&&(yp<=46.3))||((xp>=42.5)&&(xp<=46.1))&&((yp>=46.3)&&(yp<=48.2))||((xp>=40.5)&&(xp<=46.1))&&((yp>=48.2)&&(yp<=50.0))||((xp>=39.9)&&(xp<=40.5))&&((yp>=50.0)&&(yp<=50.9))||((xp>=38.3)&&(xp<=40.5))&&((yp>=50.9)&&(yp<=52.7))||((xp>=36.4)&&(xp<=40.5))&&((yp>=52.7)&&(yp<=55.1))||((xp>=34.3)&&(xp<=40.5))&&((yp>=55.1)&&(yp<=58.2))||((xp>=32.8)&&(xp<=34.0))&&((yp>=58.0)&&(yp<=61.0))||((xp>=31.7)&&(xp<=34.0))&&((yp>=61.0)&&(yp<=69.2))
+||((xp<=55.7)&&(xp>=53.9))&&((yp<=55.6)&&(yp>=53.7))||((xp<=57.5)&&(xp>=53.9))&&((yp<=53.7)&&(yp>=51.8))||((xp<=59.5)&&(xp>=53.9))&&((yp<=51.8)&&(yp>=50.0))||((xp<=60.1)&&(xp>=59.5))&&((yp<=50.0)&&(yp>=49.1))||((xp<=61.7)&&(xp>=59.5))&&((yp<=49.1)&&(yp>=47.3))||((xp<=63.6)&&(xp>=59.5))&&((yp<=47.3)&&(yp>=44.9))||((xp<=65.7)&&(xp>=59.5))&&((yp<=44.9)&&(yp>=41.8))||((xp<=67.2)&&(xp>=66.0))&&((yp<=42.0)&&(yp>=39.0))||((xp<=68.3)&&(xp>=66.0))&&((yp<=39.0)&&(yp>=30.8))||((xp>=46.1)&&(xp<=53.9))&&((yp>=43.2)&&(yp<=50.0))||((xp>=40.5)&&(xp<=59.5))&&((yp>=50.0)&&(yp<=58.2))||((xp>=34.0)&&(xp<=66.0))&&((yp>=58.2)&&(yp<=71.4))){
+    console.log("pressed PAWPAD");
+    pawPad();
+
+  }
 }

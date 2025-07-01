@@ -56,28 +56,17 @@ String getContentType(String filename) {
 }
 
 void longRelay() {
-    M5.Lcd.fillScreen(BLACK);
-    M5.Lcd.setTextColor(WHITE);
-    M5.Lcd.setTextSize(2);
-    M5.Lcd.setCursor(20, 40);
-    M5.Lcd.println("1");
     digitalWrite(32, HIGH);
-    delay(1000);
+    delay(500);
     digitalWrite(32, LOW);
-    restoreNormalDisplay();
+
   
 }
 
 void shortRelay() {
-    M5.Lcd.fillScreen(BLACK);
-    M5.Lcd.setTextColor(WHITE);
-    M5.Lcd.setTextSize(2);
-    M5.Lcd.setCursor(20, 40);
-    M5.Lcd.println("2");
     digitalWrite(32, HIGH);
     delay(100);
     digitalWrite(32, LOW);
-    restoreNormalDisplay();
 }
 
 
