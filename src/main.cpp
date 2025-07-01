@@ -57,7 +57,7 @@ String getContentType(String filename) {
 
 void longRelay() {
     digitalWrite(32, HIGH);
-    delay(500);
+    delay(300);
     digitalWrite(32, LOW);
 
   
@@ -91,7 +91,7 @@ void restoreNormalDisplay() {
 
 void handleShort() {
     shortRelay();
-    server.send(200, "/short", "");
+    server.send(100, "/short", "");
 
 }
 

@@ -1,26 +1,29 @@
 
-
 const petBowl = [
-    'images/bowl1.png',
     'images/bowl2.png',
     'images/bowl3.png',
     'images/bowl4.png',
     'images/bowl5.png',
     'images/bowl6.png',
-    'images/bowl7.png'
+    'images/bowl7.png',
+    'images/bowl1.png'
     ];
     const feedButton = document.getElementById('feeder');
+    let index = 0;
     let food = document.getElementById('bowlImg');
-    let index = 0; 
+     
     feedButton.addEventListener('click', () => {
         food.src = petBowl[index];
-        index++;
-        if (index < petBowl.length-1){
+        
+        if (index < 5 || index == 6){
             omnom();
         }
-        if(index == petBowl.length-1){
+        if(index == petBowl.length-2){
             feedButton.innerHTML='Refill';
         }
+        
+        index++;
+
         if (index >= petBowl.length) {
             index = 0;
             feedButton.innerHTML=' Feed ';
@@ -334,7 +337,11 @@ function WherePressed(width, height, x, y){
   const xp = (x/width)*100;
   const yp = (y/height)*100;
  
-  if(((xp<=85.7)&&(xp>=75.4))&&((yp<=56.7)&&(yp>=53.1))||((xp<=75.4)&&(xp>=71.4))&&((yp<=55.8)&&(yp>=53.1))||((xp<=86.4)&&(xp>=67.7))&&((yp<=53.1)&&(yp>=44.3))||((xp<=85.3)&&(xp>=68.6))&&((yp<=44.3)&&(yp>=41.6))||((xp<=80.3)&&(xp>=72.1))&&((yp<=41.6)&&(yp>=40.9))){
+  if(((xp<=85.7)&&(xp>=75.4))&&((yp>=43.3)&&(yp<=46.9))||
+((xp<=75.4)&&(xp>=71.4))&&((yp>=44.2)&&(yp<=46.9))||
+((xp<=86.4)&&(xp>=67.7))&&((yp>=46.9)&&(yp<=55.7))||
+((xp<=85.3)&&(xp>=68.6))&&((yp>=55.7)&&(yp<=58.4))||
+((xp<=80.3)&&(xp>=72.1))&&((yp>=58.4)&&(yp<=59.1))){
     console.log("pressed RIGHT RIGHT");
     farRightBean();
   }
@@ -342,7 +349,10 @@ function WherePressed(width, height, x, y){
     console.log("pressed LEFT LEFT");
     farLeftBean();
   }
-  if(((xp<=70.6)&&(xp>=54.3))&&((yp<=73.7)&&(yp>=70.0))||((xp<=72.4)&&(xp>=53.0))&&((yp<=70.0)&&(yp>=59.6))||((xp<=65.7)&&(xp>=57.0))&&((yp<=57.3)&&(yp>=56.0))||((xp<=69.2)&&(xp>=54.1))&&((yp<=59.6)&&(yp>=57.3))){
+  if(((xp<=70.6)&&(xp>=54.3))&&((yp>=26.3)&&(yp<=30.0))||
+((xp<=72.4)&&(xp>=53.0))&&((yp>=30.0)&&(yp<=40.4))||
+((xp<=65.7)&&(xp>=57.0))&&((yp>=42.7)&&(yp<=44.0))||
+((xp<=69.2)&&(xp>=54.1))&&((yp>=40.4)&&(yp<=42.7))){
     console.log("pressed RIGHT");
     rightBean();
   }
@@ -351,7 +361,16 @@ function WherePressed(width, height, x, y){
     leftBean();
   }
   if(((xp>=44.3)&&(xp<=46.1))&&((yp>=44.4)&&(yp<=46.3))||((xp>=42.5)&&(xp<=46.1))&&((yp>=46.3)&&(yp<=48.2))||((xp>=40.5)&&(xp<=46.1))&&((yp>=48.2)&&(yp<=50.0))||((xp>=39.9)&&(xp<=40.5))&&((yp>=50.0)&&(yp<=50.9))||((xp>=38.3)&&(xp<=40.5))&&((yp>=50.9)&&(yp<=52.7))||((xp>=36.4)&&(xp<=40.5))&&((yp>=52.7)&&(yp<=55.1))||((xp>=34.3)&&(xp<=40.5))&&((yp>=55.1)&&(yp<=58.2))||((xp>=32.8)&&(xp<=34.0))&&((yp>=58.0)&&(yp<=61.0))||((xp>=31.7)&&(xp<=34.0))&&((yp>=61.0)&&(yp<=69.2))
-||((xp<=55.7)&&(xp>=53.9))&&((yp<=55.6)&&(yp>=53.7))||((xp<=57.5)&&(xp>=53.9))&&((yp<=53.7)&&(yp>=51.8))||((xp<=59.5)&&(xp>=53.9))&&((yp<=51.8)&&(yp>=50.0))||((xp<=60.1)&&(xp>=59.5))&&((yp<=50.0)&&(yp>=49.1))||((xp<=61.7)&&(xp>=59.5))&&((yp<=49.1)&&(yp>=47.3))||((xp<=63.6)&&(xp>=59.5))&&((yp<=47.3)&&(yp>=44.9))||((xp<=65.7)&&(xp>=59.5))&&((yp<=44.9)&&(yp>=41.8))||((xp<=67.2)&&(xp>=66.0))&&((yp<=42.0)&&(yp>=39.0))||((xp<=68.3)&&(xp>=66.0))&&((yp<=39.0)&&(yp>=30.8))||((xp>=46.1)&&(xp<=53.9))&&((yp>=43.2)&&(yp<=50.0))||((xp>=40.5)&&(xp<=59.5))&&((yp>=50.0)&&(yp<=58.2))||((xp>=34.0)&&(xp<=66.0))&&((yp>=58.2)&&(yp<=71.4))){
+||((xp<=66.0)&&(xp>=34.0))&&((yp<=71.4)&&(yp>=58.2))||((xp<=59.5)&&(xp>=40.5))&&((yp<=58.2)&&(yp>=50.0))||((xp<=46.1)&&(xp>=53.9))&&((yp<=50.0)&&(yp>=43.2))||((xp<=55.7)&&(xp>=53.9))&&((yp>=44.4)&&(yp<=46.3))||
+((xp<=57.5)&&(xp>=53.9))&&((yp>=46.3)&&(yp<=48.2))||
+((xp<=59.5)&&(xp>=53.9))&&((yp>=48.2)&&(yp<=50.0))||
+((xp<=60.1)&&(xp>=59.5))&&((yp>=50.0)&&(yp<=50.9))||
+((xp<=61.7)&&(xp>=59.5))&&((yp>=50.9)&&(yp<=52.7))||
+((xp<=63.6)&&(xp>=59.5))&&((yp>=52.7)&&(yp<=55.1))||
+((xp<=65.7)&&(xp>=59.5))&&((yp>=55.1)&&(yp<=58.2))||
+((xp<=67.2)&&(xp>=66.0))&&((yp>=58.0)&&(yp<=61.0))||
+((xp<=68.3)&&(xp>=66.0))&&((yp>=61.0)&&(yp<=69.2))
+){
     console.log("pressed PAWPAD");
     pawPad();
 

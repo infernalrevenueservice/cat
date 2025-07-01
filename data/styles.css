@@ -10,12 +10,26 @@ body {
     min-height: 100vh;
     color: white;
     overflow-x: hidden;
+    text-align: "center";
 }
 
 .container {
-    max-width: 900px;
+    min-width: 400px;
     margin: 0 auto;
     padding: 20px;
+    text-align: "center";
+}
+
+.page {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in-out;
+    min-height: 600px;
+    text-align: "center";
+    
 }
 
 /* Header with greeting */
@@ -34,23 +48,28 @@ body {
     color: #cfdfff;
 }
 
-/* Page content */
-.page {
-    display: none;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    animation: fadeIn 0.5s ease-in-out;
-    height: 725px;
+#target1{
+  border: 2px;
+}
 
+#cat{
+  border: 2px;
+  max-width:500px;
 }
-.imgCon{
-    padding: 20px;
-    object-fit: contain;
-    height: 50%;
-    width: auto;
+#home{
+  text-align:center;
 }
+#target3{
+  border: 2px;
+}
+
+#paw{
+  border: 2px;
+}
+#play{
+  text-align:center;
+}
+
 
 .page.active {
     display: block;
@@ -200,81 +219,10 @@ p {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
-.pawCon {
-    padding:20px;
-    object-fit: contain;
-    width: 434px;
-    height: 80%;
-
-}
-.beanR{
-    width: auto;
-    height: 18%;
-    z-index:50;
-    top:50%;
-    right:21%;
-
-}
-.beanL{
-    width: auto;
-    height: 18%;
-    z-index:50;
-    top:50%;
-    left:21%;
-}
-.beanRR{
-    width: auto;
-    height: 12%;
-    z-index:50;
-    top:35%;
-    right:35%;
-}
-.beanLL{
-    width: auto;
-    height: 12%;
-    z-index:50;
-    top:35%;
-    left:35%;
-}
-.pad{
-    width: auto;
-    height: 25%;
-    z-index: 50;
-    top:57%;
-    left:50%;
-}
-.foodCon {
-    width: 434px;
-    object-fit: contain;
-    height: 80%;
-    padding:20px;
+#target2{
+  border: 2px;
 }
 
-.myImg{
-    z-index: 20;
-    object-fit: contain;
-    padding:20px;
-    width: 434px;
-    height: 80%;
-}
-img{
-    position:absolute;
-    top:0px;
-    left:0px;
-    object-fit: contain;
-    padding:20px;    
-}
-.bowlBack{
-    height: 80%;
-    width:434px;
-    z-index:1;
-    object-fit: contain;
-}
-
-.bowlfront{
-    z-index:30;
-    object-fit: contain;
-    height: 80%;
-    width:434px;
-    padding:20px;
+#nom{
+  text-align:center;
 }
